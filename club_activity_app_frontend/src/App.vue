@@ -2,9 +2,13 @@
   <div id="app">
     <nav>
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/about">About</router-link> |
+      <router-link to="/UserLogin">login</router-link>
+      <p>{{ info }}aaaaaaaaaaaaaa</p>
     </nav>
     <router-view/>
+
+    <footer>this is footer</footer>
   </div>
 </template>
 

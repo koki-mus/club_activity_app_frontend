@@ -4,7 +4,7 @@ iframe{
     height:150px;
 }
 
-.component{
+.view{
     padding-left: 20px;
     border: 2px solid;
 }
@@ -18,6 +18,6 @@ iframe{
 .linklist{
     padding-left: 40px;
 }
-.microcomponents{
+.components{
     padding-left: 50px;
 }

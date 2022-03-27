@@ -1,4 +1,5 @@
 .env
+*.db
 /study_vue
 /vue_test
-/vue_test2
+/vue_test2/
