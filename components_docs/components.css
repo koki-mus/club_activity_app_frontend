@@ -1,0 +1,23 @@
+iframe{
+    display: block;
+    width:80%;
+    height:150px;
+}
+
+.component{
+    padding-left: 20px;
+    border: 2px solid;
+}
+
+.links{
+    padding-left: 0px;
+}
+.link{
+    padding-left: 20px;
+}
+.linklist{
+    padding-left: 40px;
+}
+.microcomponents{
+    padding-left: 50px;
+}
