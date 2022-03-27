@@ -1,0 +1,2 @@
+# club_activity_app_frontend
+habatan/clubactivityのフロント側
