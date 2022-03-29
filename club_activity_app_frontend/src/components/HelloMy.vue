@@ -1,8 +1,6 @@
 <template>
   <div class="HelloMy">
     <h1>{{ msg }}</h1>
-<h1>{{message}}gg</h1>
-
   </div>
 </template>
 

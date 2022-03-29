@@ -1,14 +1,16 @@
 <template>
   <div class="about">
     <h1>This is an login page</h1>
-      <HelloMy msg="メッセージ"/>
+      <HelloMy :msg="Date().toLocaleString()"/>
       <p>{{Date().toLocaleString()}}</p>
+
   </div>
 
 
 </template>
 
 <script>
+
 import HelloMy from '@/components/HelloMy.vue'
 export default {
   name: 'UserLogin',
@@ -16,6 +18,12 @@ export default {
     HelloMy
   }
 }
-console.log(Date().toLocaleString());
+console.log("なんと");
+
+import {apireq_test, test} from '@/modules/module';
+apireq_test();
+test()
+
 </script>
+
 

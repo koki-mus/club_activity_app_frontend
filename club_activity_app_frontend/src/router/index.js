@@ -9,11 +9,6 @@ const routes = [
     path: '/',
     name: 'home',
     component: HomeView,
-    data () {
-      return{
-        info: "lllllllllllllllll"
-      }
-    }
   },
   {
     path: '/about',
