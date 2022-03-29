@@ -1,8 +1,17 @@
 <template>
-  <div class="about">
+  <div class="UserLogin">
     <h1>This is an login page</h1>
       <HelloMy :msg="Date().toLocaleString()"/>
+      <h3>Welcome {{ $store.state.account.userId }}</h3>
       <p>{{Date().toLocaleString()}}</p>
+      <form v-on:submit.prevent="doLogin">
+        <label>User ID</label>
+        <input type="text" placeholder="customer id" v-model="user.userId" />
+        <label>Password</label>
+        <input type="password" placeholder="password" v-model="user.password" />
+        <button type="submit">Sign In</button>
+      </form>
+
 
   </div>
 
@@ -16,12 +25,26 @@ export default {
   name: 'UserLogin',
   components: {
     HelloMy
+  },
+  data() {
+    return {
+      user: {}
+    };
+  },
+  methods: {
+    doLogin() {
+      this.$store.dispatch("auth", {
+        userId: this.user.userId,//this.user.userId
+        userToken: 'dummy token'
+      });
+      this.$router.push(this.$route.query.redirect);
+    }
   }
-}
-console.log("なんと");
+};
 
-import {apireq_test, test} from '@/modules/module';
-apireq_test();
+
+import {test} from '@/modules/module';
+//apireq_test();
 test()
 
 </script>

@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import store from '@/store/index.js'
 import HomeView from '../views/HomeView.vue'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
-    path: '/',
+    path: '/HomeView',
     name: 'home',
     component: HomeView,
   },
@@ -24,19 +25,29 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/UserLogin.vue')
   },
   {
-    path: '/UserHome',
+    path: '',
     name: 'UserHome',
-    component: () => import(/* webpackChunkName: "about" */ '../views/UserHome.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/UserHome.vue'),
+    meta: { requiresAuth: true }
   },
   {
     path: '/UserRegisterdInfo',
     name: 'UserRegisteredInfo',
-    component: () => import(/* webpackChunkName: "about" */ '../views/UserRegisteredInfo.vue')
+    component: () => import(/* webpackChunkName: "about" */ '../views/UserRegisteredInfo.vue'),
+    meta: { requiresAuth: true }
   }
 ]
 
 const router = new VueRouter({
   routes
 })
+
+router.beforeEach((to, from, next) => {
+  if (to.matched.some(record => record.meta.requiresAuth) && !store.state.account.userToken) {
+    next({ path: '/UserLogin', query: { redirect: to.fullPath } });
+  } else {
+    next();
+  }
+});
 
 export default router
