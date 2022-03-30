@@ -12,9 +12,9 @@
 
 
 <script>
-import {thiscall, logout} from '@/modules/module';
+import {logout} from '@/modules/module';
 import store from '@/store'
-thiscall()
+
 alert(store.state.account.userId)
 export default {
   name: "UserHome",

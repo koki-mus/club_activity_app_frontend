@@ -20,8 +20,8 @@ export function test(){
     console.log("aaaaaaaaaaa")
 }
 
-export function reset_state(){
-  this.$store.dispatch("auth", {
+export function reset_state(){//Storeの情報の消し方改善すべき
+  store.dispatch("auth", {
     userId: '',
     userToken: ''
   });
@@ -29,17 +29,20 @@ export function reset_state(){
 
 
 export function logout() {
-  console.log("logout")
-  //Storeの情報の消し方.
-  store.dispatch("auth", {
-    userId: '',
-    userToken: ''
-  });
-  console.log("dispatch")
-  //reset_state()
+
+  reset_state()
   router.go(router.currentRoute.path)//リロードしてstate消してる。他にも効果ありそう。付けとくのが無難、
   router.push("/UserLogin")//ログイン画面に遷移、logoutの関数に組み込んだ方が良い
 }
 
-export function thiscall(){
-console.log(store.state.account.userId)}
+
+export function login(user) {
+  //認証
+  reset_state()//認証後
+  store.dispatch("auth", {
+    userId: user.userId,//this.user.userId
+    userToken: 'dummy token'
+  })
+  router.push("/");//(router.query.redirect);  
+}
+

@@ -21,6 +21,7 @@
 <script>
 
 import HelloMy from '@/components/HelloMy.vue'
+import {login} from '@/modules/module'
 export default {
   name: 'UserLogin',
   components: {
@@ -32,13 +33,22 @@ export default {
     };
   },
   methods: {
-    doLogin() {
-      this.$store.dispatch("auth", {
-        userId: this.user.userId,//this.user.userId
-        userToken: 'dummy token'
-      });
-      this.$router.push(this.$route.query.redirect);
+    doLogin() {login(this.user);
+    //this.$router.push(this.$router.query.redirect);
     }
+    /* doLogin() {
+      new Promise((resolve) =>{
+
+        this.$store.dispatch("auth", {
+          userId: this.user.userId,//this.user.userId
+          userToken: 'dummy token'
+        });
+        resolve()
+      }).then(()=>{
+        this.$router.push(this.$route.query.redirect);
+      })
+
+    } */
   }
 };
 
