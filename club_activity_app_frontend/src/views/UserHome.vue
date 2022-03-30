@@ -13,9 +13,9 @@
 
 <script>
 import {logout} from '@/modules/module';
-import store from '@/store'
 
-alert(store.state.account.userId)
+//import store from '@/store'
+//alert(store.state.account.userId)
 export default {
   name: "UserHome",
     created: function() {

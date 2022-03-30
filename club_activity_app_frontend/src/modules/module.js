@@ -31,13 +31,13 @@ export function reset_state(){//Storeの情報の消し方改善すべき
 export function logout() {
 
   reset_state()
-  router.go(router.currentRoute.path)//リロードしてstate消してる。他にも効果ありそう。付けとくのが無難、
-  router.push("/UserLogin")//ログイン画面に遷移、logoutの関数に組み込んだ方が良い
+  router.go(router.currentRoute.path)//リロードして永続化してないstate消して。他にも効果ありそう。付けとくのが無難、
+  router.push("/login")//ログイン画面に遷移、logoutの関数に組み込んだ方が良い
 }
 
 
 export function login(user) {
-  //認証
+  //認証付ける
   reset_state()//認証後
   store.dispatch("auth", {
     userId: user.userId,//this.user.userId

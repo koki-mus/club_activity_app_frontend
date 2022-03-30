@@ -20,7 +20,7 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '../views/AboutView.vue')
   },
   {
-    path: '/UserLogin',
+    path: '/login',
     name: 'UserLogin',
     component: () => import(/* webpackChunkName: "about" */ '../views/UserLogin.vue')
   },
@@ -44,7 +44,7 @@ const router = new VueRouter({
 
 router.beforeEach((to, from, next) => {
   if (to.matched.some(record => record.meta.requiresAuth) && !store.state.account.userToken) {
-    next({ path: '/UserLogin', query: { redirect: to.fullPath } });
+    next({ path: '/login', query: { redirect: to.fullPath } });
   } else {
     next();
   }
