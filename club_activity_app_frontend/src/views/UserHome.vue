@@ -1,5 +1,5 @@
 <template>
-  <div class="about">
+  <div class="UserHome">
     <h1>User home page</h1>
     <h3>Welcome {{ $store.state.account.userId }}</h3>
     <button v-on:click="logout">ログアウト</button>

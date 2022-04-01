@@ -1,7 +1,7 @@
 <template>
   <div class="UserLogin">
     <h1>login & signin page</h1>
-      <HelloMy :msg="Date().toLocaleString()"/>
+      <!-- <HelloMy :msg="Date().toLocaleString()"/> -->
       <h3>Welcome {{ $store.state.account.userId }}</h3>
       <p>{{Date().toLocaleString()}}</p>
 <!--       <form v-on:submit.prevent="doLogin">
@@ -20,8 +20,6 @@
           <UserLoginForm/>
           <p>新規登録は</p><span style="cursor: pointer;" @click="currentComponent = 'UserSigninForm'">こちら</span>
         </div>
-        <button v-if="currentComponent == 'UserSigninForm'" @click="currentComponent = 'UserLoginForm'">log in</button>
-        <button v-if="currentComponent == 'UserLoginForm'" @click="currentComponent = 'UserSigninForm'">Sign in</button>
         <!-- <component v-bind:is="currentComponent"></component> -->
 
       </div>
@@ -34,14 +32,14 @@
 
 <script>
 
-import HelloMy from '@/components/HelloMy.vue'
+// import HelloMy from '@/components/HelloMy.vue'
 import UserLoginForm from "@/components/UserLoginForm.vue";
 import UserSigninForm from "@/components/UserSigninForm.vue";
 import {login} from '@/modules/module'
 export default {
   name: 'UserLogin',
   components: {
-    HelloMy,
+    // HelloMy,
     UserLoginForm,
     UserSigninForm
   },

@@ -1,6 +1,8 @@
 <template>
   <div class="UserLoginForm">
-    <h1>Login</h1>
+    <img src="" alt="">
+    <h1 class="test">Welcome</h1>
+
       <form v-on:submit.prevent="doLogin">
         <label>User ID</label>
         <input type="text" placeholder="customer id" v-model="user.userId" />
