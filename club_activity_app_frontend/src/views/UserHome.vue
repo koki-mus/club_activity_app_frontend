@@ -1,43 +1,49 @@
 <template>
   <div class="UserHome">
+    <UserHomeHeader v-bind:mediaType="mediaType"/>
     <h1>User home page</h1>
-    <h3>Welcome {{ $store.state.account.userId }}</h3>
+    <h3>Welcome {{ $store.state.account.userId }}{{ $store.state.account.userToken}}</h3>
     <button v-on:click="logout">ログアウト</button>
-
+<h2>{{mediaType}}</h2>
   </div>
 </template>
 
 
     
-
-
 <script>
 import {logout} from '@/modules/module';
+import UserHomeHeader from '@/components/UserHomeHeader'
 
 //import store from '@/store'
 //alert(store.state.account.userId)
 export default {
   name: "UserHome",
     created: function() {
-    this.fetchHello();
+    this.tellMediaType();
+    },
+    mounted(){
+      window.addEventListener('resize',this.tellMediaType);
+    },
+    data(){
+      return{
+        mediaType: "pc"
+      };
     },
   methods: {
     logout: function() {
       logout()
     }, 
-    fetchHello() {//認証を作る時に変える
-/*    const uri = "http://localhost:8080/hello";//認証のサーバ
-      this.axios.get(uri
-      // ,{  //tokenを使う設定
-      //     headers: { 
-      //     "Content-Type": "application/json", 
-      //     "Authorization": $store.state.account.userToken 
-      // },
-      ).then(response => {
-          this.message = response.data.message;
-          }); */
-      this.message = "hello vuex";//debug用
+    tellMediaType(){
+      if (window.innerWidth > 400) {
+        this.mediaType = "pc"
+      }else{
+        this.mediaType ="mobile"
     }
+    }
+  },
+  components:{
+    UserHomeHeader
   }
 };
+
 </script>

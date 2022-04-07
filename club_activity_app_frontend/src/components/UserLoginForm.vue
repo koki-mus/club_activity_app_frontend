@@ -10,6 +10,9 @@
         <input type="password" placeholder="password" v-model="user.password" />
         <button type="submit">Sign In</button>
       </form>
+
+      <h3>LINElogin</h3>
+      
   </div>
 </template>
 

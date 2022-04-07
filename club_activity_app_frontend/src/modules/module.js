@@ -39,10 +39,21 @@ export function logout() {
 export function login(user) {
   //認証付ける
   reset_state()//認証後
-  store.dispatch("auth", {
-    userId: user.userId,//this.user.userId
-    userToken: 'dummy token'
-  })
-  router.push("/");//(router.query.redirect);  
+  axios.get('http://localhost:8888/hoge',{}, {withCredentials : true})
+      .then(function (response){
+
+        
+        
+        store.dispatch("auth", {
+          userId: user.userId,//this.user.userId
+          userToken: response.data.token
+        })
+        console.log(response)
+      }).then(function () {
+          router.push("/"); //(router.query.redirect);
+        }
+      )
 }
+    
+    
 
