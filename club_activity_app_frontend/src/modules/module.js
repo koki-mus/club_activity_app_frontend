@@ -69,7 +69,7 @@ export function signup(user) {//全部テスト用でログインと同じ
         })
         console.log(response)
       }).then(function () {
-          router.push("/"); //(router.query.redirect);
+          router.push("/"); //(router.query.redirect);//アーティスト登録などの画面へ
         }
       )
 }
