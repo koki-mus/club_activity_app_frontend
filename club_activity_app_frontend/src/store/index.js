@@ -29,11 +29,29 @@ const infoooo ={//類似ユーザとか入れる
     }
 }
 
+const mediaType = {
+    state(){
+        return{
+            mediaType:"mobile"
+        }
+    },
+    mutations:{
+        tellMediaType(state){
+            if (window.innerWidth > 400) {
+                state.mediaType = "pc"
+            }else{
+                state.mediaType ="mobile"
+            }
+        }
+    }
+}
+
 
 const store = new Vuex.Store({
     modules: {
         account: account,
-        infoooo: infoooo
+        infoooo: infoooo,
+        mediaType: mediaType
     },
     plugins: [createPersistedState({
 

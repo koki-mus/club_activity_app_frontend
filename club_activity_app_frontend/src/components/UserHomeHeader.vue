@@ -1,6 +1,6 @@
 <template>
     <div id="UserHomeHeader">
-        <div id="pcHeader" v-if="mediaType == 'pc'">
+        <div id="pcHeader" v-if="$store.state.mediaType.mediaType == 'pc'">
             <div id="header-left" class="header-container-item">
                 <div id="guide-button" class="header-left-item"><button>guide</button></div>
                 <div id="app-logo-button" class="header-left-item"><img src="favicon.ico" alt="logo"></div>
@@ -20,7 +20,7 @@
             </div>
 
         </div>
-        <div id="mobileHeader" v-if="mediaType == 'mobile'">
+        <div id="mobileHeader" v-if="$store.state.mediaType.mediaType == 'mobile'">
             <div class="nosearch-container mobileHeader" v-if="searchMode == false">
                 <div id="header-left" class="header-container-item">
                     <div id="guide-button" class="header-left-item"><button>guide</button></div>
@@ -44,6 +44,7 @@
             </div>
             
         </div>
+        <p>medtype:{{$store.state.mediaType.mediaType}}</p>
     </div>
     
     
@@ -55,9 +56,6 @@
 
 export default {    
     name: 'UserHomeHeader',
-    props:{
-        mediaType:String //pcとmobile
-    },
     data(){
       return{
         searchMode: false
@@ -67,6 +65,12 @@ export default {
 </script>
 
 <style scoped>
+.UserHomeHeader{
+    margin: 200px;
+    padding: 0%;
+    background: #000;
+}
+
 .mobileHeader{
     background-color: aquamarine;
     display: flex;

@@ -4,11 +4,9 @@
       <router-link to="/">Home</router-link> |
       <router-link to="/about">About</router-link> |
       <router-link to="/login">login</router-link>
-
     </nav>
-    <router-view/>
+    <router-view class="margin0" />
 
-    <footer>this is footer</footer>
   </div>
 </template>
 
@@ -19,10 +17,18 @@
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
+  margin: 0px;
+  padding:0px;
+}
+body {
+  margin: 0px;
+  padding:0px;
+
 }
 
 nav {
-  padding: 30px;
+  padding: 0px;
+  margin: 0px;
 }
 
 nav a {
@@ -34,9 +40,29 @@ nav a.router-link-exact-active {
   color: #42b983;
 }
 
-.test{
-  font-size: 70px;
+.margin0{
+  margin: opx;
 }
 
 
 </style>
+
+<script>
+export default {
+    name: "app",
+    created: function() {
+      this.tellMediaType();
+    },
+    mounted(){
+      window.addEventListener('resize',this.tellMediaType);
+    },
+  methods: {
+    tellMediaType(){
+      console.log("tellmeditype")
+      this.$store.commit("tellMediaType")
+    }
+  }
+}
+</script>
+
+
