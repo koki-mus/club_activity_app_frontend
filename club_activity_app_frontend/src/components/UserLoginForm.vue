@@ -1,13 +1,12 @@
 <template>
   <div class="UserLoginForm">
-    <img src="" alt="">
-    <h1 class="test">Welcome</h1>
-
+    <h1>アプリにログイン</h1>
+    
       <form v-on:submit.prevent="doLogin">
-        <label>User ID</label>
-        <input type="text" placeholder="customer id" v-model="user.userId" />
-        <label>Password</label>
-        <input type="password" placeholder="password" v-model="user.password" />
+        <label>ユーザーID</label>
+        <input type="text" placeholder="user id" v-model="user.userId" /><br>
+        <label>パスワード</label>
+        <input type="password" placeholder="password" v-model="user.password" /><br>
         <button type="submit">Sign In</button>
       </form>
 

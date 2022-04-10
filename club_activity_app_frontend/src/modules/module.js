@@ -54,6 +54,24 @@ export function login(user) {
         }
       )
 }
-    
+ 
+export function signup(user) {//全部テスト用でログインと同じ
+  //認証付ける
+  reset_state()//認証後
+  axios.get('http://localhost:8888/hoge',{}, {withCredentials : true})
+      .then(function (response){
+
+        
+
+        store.dispatch("auth", {
+          userId: user.userId,//this.user.userId
+          userToken: response.data.token
+        })
+        console.log(response)
+      }).then(function () {
+          router.push("/"); //(router.query.redirect);
+        }
+      )
+}
     
 

@@ -1,9 +1,7 @@
 <template>
   <div class="UserLogin">
-    <h1>login & signin page</h1>
-      <!-- <HelloMy :msg="Date().toLocaleString()"/> -->
-      <h3>Welcome {{ $store.state.account.userId }}</h3>
-      <p>{{Date().toLocaleString()}}</p>
+    <img src="favivon.ico" alt="logo">
+      <h3>test :{{ $store.state.account.userId }}</h3>
 <!--       <form v-on:submit.prevent="doLogin">
         <label>User ID</label>
         <input type="text" placeholder="customer id" v-model="user.userId" />
@@ -12,13 +10,13 @@
         <button type="submit">Sign In</button>
       </form> -->
       <div>
-        <div v-if="currentComponent == 'UserSigninForm'">
-          <UserSigninForm/>
+        <div v-if="currentComponent == 'UserSignupForm'">
+          <UserSignupForm/>
           <p>アカウントをお持ちの方は</p><span style="cursor: pointer;" @click="currentComponent = 'UserLoginForm'">こちら</span>
         </div>
         <div v-if="currentComponent == 'UserLoginForm'">
           <UserLoginForm/>
-          <p>新規登録は</p><span style="cursor: pointer;" @click="currentComponent = 'UserSigninForm'">こちら</span>
+          <p>新規登録は</p><span style="cursor: pointer;" @click="currentComponent = 'UserSignupForm'">こちら</span>
         </div>
         <!-- <component v-bind:is="currentComponent"></component> -->
 
@@ -34,14 +32,14 @@
 
 // import HelloMy from '@/components/HelloMy.vue'
 import UserLoginForm from "@/components/UserLoginForm.vue";
-import UserSigninForm from "@/components/UserSigninForm.vue";
+import UserSignupForm from "@/components/UserSignupForm.vue";
 import {login} from '@/modules/module'
 export default {
   name: 'UserLogin',
   components: {
     // HelloMy,
     UserLoginForm,
-    UserSigninForm
+    UserSignupForm
   },
   data() {
     return {

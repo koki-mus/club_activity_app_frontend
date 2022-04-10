@@ -131,10 +131,10 @@ export default {
 }
 /* mobile */
 #mobileHeader .header-container-item{
-    width:50%
+    width:auto
 }
 #mobileHeader #header-left{
- width:40%
+ width:auto
 }
 
 #mobileHeader .header-left-item{
