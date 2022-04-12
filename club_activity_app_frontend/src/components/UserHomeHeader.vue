@@ -8,7 +8,7 @@
 
             </div>
             <div id="header-center" class="header-container-item">
-                <div id="search-box" class="header-center-item"><input type="text"></div>
+                <div id="search-box" class="header-center-item"><input type="text" placeholder="検索"></div>
                 <div id="search-button" class="header-center-item"><button>search</button></div>
             </div>
             <div id="header-right" class="header-container-item">
@@ -39,8 +39,8 @@
             </div>
             <!-- 高さも0にして消す -->
             <div class="search-container mobileHeader" v-if="searchMode == true">
-                <div id="search-back-backbutton" class="header-left-item"><button v-on:click="searchMode = false">back</button></div>
-                <div id="search-box" class="header-center-item"><input type="text"></div>
+                <div id="search-back-backbutton" class="header-left-item search-container-item"><button v-on:click="searchMode = false">back</button></div>
+                <div id="search-box" class="header-center-item search-container-item"><input type="text"></div>
             </div>
             
         </div>
@@ -92,15 +92,16 @@ export default {
 }
 
 .header-container-item{
-    display: inline-block;
+    display: block;
     margin :auto;
-    width: 33%;
-    
+   
+}
+#search-button{
+    width: 80px;
 }
 #header-left{
     margin-left: 7px;
-    text-align: left
-
+    text-align: left;
 }
 
 .header-left-item{
@@ -154,5 +155,23 @@ export default {
 #mobileHeader .header-right-item{
 
 }
-
+.search-conteiner{
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+    width: 100%;
+}
+.search-container-item{
+    display: inline-block;
+    text-align: center;
+}
+#search-back-backbutton{
+    width: 40px;
+    margin-left: 7px;
+}
+#search-box{
+    width: 80%;
+    margin-right:7px;
+}
+ 
 </style>

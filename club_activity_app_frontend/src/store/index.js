@@ -37,7 +37,7 @@ const mediaType = {
     },
     mutations:{
         tellMediaType(state){
-            if (window.innerWidth > 400) {
+            if (window.innerWidth > 430) {//横幅で決める
                 state.mediaType = "pc"
             }else{
                 state.mediaType ="mobile"
