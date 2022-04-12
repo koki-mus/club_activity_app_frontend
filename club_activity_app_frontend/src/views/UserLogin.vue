@@ -12,11 +12,11 @@
       <div>
         <div v-if="currentComponent == 'UserSignupForm'">
           <UserSignupForm/>
-          <p>アカウントをお持ちの方は</p><span style="cursor: pointer;" @click="currentComponent = 'UserLoginForm'">こちら</span>
+          <p>アカウントをお持ちの方は<span class="link" style="cursor: pointer;" @click="currentComponent = 'UserLoginForm'">こちら</span></p>
         </div>
         <div v-if="currentComponent == 'UserLoginForm'">
           <UserLoginForm/>
-          <p>新規登録は</p><span style="cursor: pointer;" @click="currentComponent = 'UserSignupForm'">こちら</span>
+          <p>新規登録は<span class="link" style="cursor: pointer;" @click="currentComponent = 'UserSignupForm'">こちら</span></p>
         </div>
         <!-- <component v-bind:is="currentComponent"></component> -->
 
@@ -68,5 +68,12 @@ export default {
 };
 
 </script>
+
+<style scoped>
+.link{
+  color: blue;
+  display: inline;
+}
+</style>
 
 

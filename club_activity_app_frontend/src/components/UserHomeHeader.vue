@@ -1,6 +1,6 @@
 <template>
     <div id="UserHomeHeader">
-        <div id="pcHeader" v-if="$store.state.mediaType.mediaType == 'pc'">
+        <div id="pcHeader" class="header" v-if="$store.state.mediaType.mediaType == 'pc'">
             <div id="header-left" class="header-container-item">
                 <div id="guide-button" class="header-left-item"><button>guide</button></div>
                 <div id="app-logo-button" class="header-left-item"><img src="favicon.ico" alt="logo"></div>
@@ -20,7 +20,7 @@
             </div>
 
         </div>
-        <div id="mobileHeader" v-if="$store.state.mediaType.mediaType == 'mobile'">
+        <div id="mobileHeader" class="header" v-if="$store.state.mediaType.mediaType == 'mobile'">
             <div class="nosearch-container mobileHeader" v-if="searchMode == false">
                 <div id="header-left" class="header-container-item">
                     <div id="guide-button" class="header-left-item"><button>guide</button></div>
@@ -68,11 +68,14 @@ export default {
 .UserHomeHeader{
     margin: 200px;
     padding: 0%;
-    background: #000;
+}
+.header{
+    background: #ffffff;
+    border:10px
+    
 }
 
 .mobileHeader{
-    background-color: aquamarine;
     display: flex;
     width: 100%;
     padding-top: 7px;
@@ -81,7 +84,6 @@ export default {
 
 }
 #pcHeader{
-    background-color: aquamarine;
     display: flex;
     width: 100%;
     padding-top: 7px;
@@ -96,8 +98,6 @@ export default {
     
 }
 #header-left{
-
-    background-color: beige;
     margin-left: 7px;
     text-align: left
 
@@ -106,13 +106,11 @@ export default {
 .header-left-item{
     display: inline;
     text-align: left;
-    background-color: blue;
     ;
     
 }
 #header-center{
     text-align: center;
-    background-color: beige;
 }
 .header-center-item{
     display: inline;
@@ -123,13 +121,11 @@ export default {
     margin-left: auto;
     text-align: right;
     margin-right: 7px;
-    background-color: beige;
+
     /* width: 300px; */
 }
 .header-right-item{
     display: inline;
-    
-    background-color: blue;
     text-align: right;
     width: 30px;
 }

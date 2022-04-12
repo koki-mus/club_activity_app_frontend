@@ -1,7 +1,7 @@
 <template>
   <div class="UserSignupForm">
     <h1>Sigin up</h1>
-      <form v-on:submit.prevent="dosignup">
+      <form v-on:submit.prevent="doSignup">
         <label>ユーザーID</label><br>
         <input type="text" placeholder="user id" v-model="user.userId" /><br>
 
@@ -13,9 +13,10 @@
         <input type="password" placeholder="password" v-model="pass2" v-on:input="make_pass2_message"/><br>
         <span v-html="pass2_message"></span>
 
-        <button type="submit" >Sign In</button>
+        <button type="submit" :disabled="!pass1_flag || !pass2_flag" >Sign In</button>
 
       </form>
+      <!-- <p class="resMessage" v-html="resMessage"></p> -->
   </div>
 </template>
 
@@ -29,17 +30,21 @@ export default {
         currentComponent:"UserSignupForm",
         pass1:"",
         pass2:"",
-        pass1_message:"",
-        pass2_message:"",
+        pass1_message:"<br>",
+        pass2_message:"<br>",
         pass1_flag: false,
-        pass2_flag: false
-
+        pass2_flag: false,
+        // resMessage:"<p></p>"
     };
   },
   methods: {
     doSignup() {
       if(this.pass1_flag && this.pass2_flag){
+        this.user.password = this.pass1
         signup(this.user);
+      }
+      else{
+        alert("不正な入力があります。")
       }
     },
     make_pass1_message() {
@@ -51,7 +56,7 @@ export default {
         if(this.pass1.length < 8) {
           message += "8文字以上にしてください。"
         }
-        }
+      }
       if (this.pass1.length >= 32) {
         message += "32文字以下にしてください。"
       }
@@ -104,5 +109,10 @@ li {
 }
 a {
   color: #42b983;
+}
+
+button:disabled{
+  /* background: #42b983; */
+  color: #aaaaaaaa;
 }
 </style>

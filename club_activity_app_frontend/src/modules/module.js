@@ -48,7 +48,7 @@ export function login(user) {
           userId: user.userId,//this.user.userId
           userToken: response.data.token
         })
-        console.log(response)
+
       }).then(function () {
           router.push("/"); //(router.query.redirect);
         }
@@ -67,7 +67,7 @@ export function signup(user) {//全部テスト用でログインと同じ
           userId: user.userId,//this.user.userId
           userToken: response.data.token
         })
-        console.log(response)
+
       }).then(function () {
           router.push("/"); //(router.query.redirect);//アーティスト登録などの画面へ
         }

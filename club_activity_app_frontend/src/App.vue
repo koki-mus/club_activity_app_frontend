@@ -58,7 +58,6 @@ export default {
     },
   methods: {
     tellMediaType(){
-      console.log("tellmeditype")
       this.$store.commit("tellMediaType")
     }
   }
