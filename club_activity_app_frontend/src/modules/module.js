@@ -73,5 +73,3 @@ export function signup(user) {//全部テスト用でログインと同じ
         }
       )
 }
-    
-

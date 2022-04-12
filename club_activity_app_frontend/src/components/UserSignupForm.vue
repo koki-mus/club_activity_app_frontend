@@ -49,6 +49,28 @@ export default {
         alert("不正な入力があります。")
       }
     },
+      make_userId_message() {
+        var message = ""
+        if (this.user.userId.length == 0) {
+          message += "入力は必須です。"
+        }else{
+          if(this.user.userId.length < 8) {
+            message += "8文字以上にしてください。"
+          }
+        }
+        if (this.user.userId.length >= 32) {
+          message += "32文字以下にしてください。"
+        }
+        if (/\W+/g.test(this.user.userId)){
+          message += "半角英数字と'_'のみ使えます。"
+        }
+        if (message == "") {
+          this.userId_flag = true
+        } else {
+          this.userId_flag = false
+        }
+        this.userId_message = "<font color='red'>"+message+"</font><br>"
+      },
     make_pass1_message() {
       var message = ""
       if (this.pass1.length == 0) {
@@ -86,28 +108,6 @@ export default {
         this.pass2_flag = false
       }
       this.pass2_message = message
-    },
-    make_userId_message() {
-      var message = ""
-      if (this.user.userId.length == 0) {
-        message += "入力は必須です。"
-      }else{
-        if(this.user.userId.length < 8) {
-          message += "8文字以上にしてください。"
-        }
-      }
-      if (this.user.userId.length >= 32) {
-        message += "32文字以下にしてください。"
-      }
-      if (/\W+/g.test(this.user.userId)){
-        message += "半角英数字と'_'のみ使えます。"
-      }
-      if (message == "") {
-        this.userId_flag = true
-      } else {
-        this.userId_flag = false
-      }
-      this.userId_message = "<font color='red'>"+message+"</font><br>"
     },
   }
 }
