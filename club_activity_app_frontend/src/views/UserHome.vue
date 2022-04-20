@@ -14,6 +14,7 @@
 <script>
 import {logout} from '@/modules/module';
 import UserHomeHeader from '@/components/UserHomeHeader'
+import UserHomeMain from '@/components/UserHomeMain'
 
 //import store from '@/store'
 //alert(store.state.account.userId)
