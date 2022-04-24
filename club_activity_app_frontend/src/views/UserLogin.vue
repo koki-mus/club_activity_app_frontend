@@ -1,6 +1,6 @@
 <template>
   <div class="UserLogin">
-    <img src="favivon.ico" alt="logo">
+    <img src="favicon.ico" alt="logo">
       <h3>test :{{ $store.state.account.userId }}</h3>
 <!--       <form v-on:submit.prevent="doLogin">
         <label>User ID</label>
@@ -33,7 +33,7 @@
 // import HelloMy from '@/components/HelloMy.vue'
 import UserLoginForm from "@/components/UserLoginForm.vue";
 import UserSignupForm from "@/components/UserSignupForm.vue";
-import {login} from '@/modules/module'
+import {login} from '@/modules/api'
 export default {
   name: 'UserLogin',
   components: {

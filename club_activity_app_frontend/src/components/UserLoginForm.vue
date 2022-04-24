@@ -18,7 +18,7 @@
 </template>
 
 <script>
-import {login} from '@/modules/module'
+import {login} from '@/modules/api'
 export default {
   name: 'UserLoginForm',
     data() {

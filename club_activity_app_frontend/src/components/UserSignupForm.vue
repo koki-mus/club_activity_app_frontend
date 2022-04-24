@@ -21,7 +21,7 @@
 </template>
 
 <script>
-import {signup} from '@/modules/module'
+import {signup} from '@/modules/api'
 export default {
   name: 'UserSignupForm',
       data() {

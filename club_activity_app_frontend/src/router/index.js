@@ -35,6 +35,12 @@ const routes = [
     name: 'UserRegisteredInfo',
     component: () => import(/* webpackChunkName: "about" */ '../views/UserRegisteredInfo.vue'),
     meta: { requiresAuth: true }
+  },
+  {
+    path: '/UserDataRegister',
+    name: 'UserDataRegister',
+    component: () => import(/* webpackChunkName: "about" */ '../views/UserDataRegister.vue'),
+    meta: { requiresAuth: true }
   }
 ]
 

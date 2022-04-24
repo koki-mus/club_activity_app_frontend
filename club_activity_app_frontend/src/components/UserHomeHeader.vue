@@ -1,39 +1,40 @@
 <template>
     <div id="UserHomeHeader">
+        <div id="headerFiller"></div>
         <div id="pcHeader" class="header" v-if="$store.state.mediaType.mediaType == 'pc'">
             <div id="header-left" class="header-container-item">
                 <div id="guide-button" class="header-left-item"><button>guide</button></div>
-                <div id="app-logo-button" class="header-left-item"><img src="favicon.ico" alt="logo"></div>
-                
+                <div id="app-logo-button" class="header-left-item"><router-link to="/"><img  src="favicon.ico" alt="logo" height="33px"></router-link></div>
 
             </div>
             <div id="header-center" class="header-container-item">
                 <div id="search-box" class="header-center-item"><input type="text" placeholder="検索"></div>
-                <div id="search-button" class="header-center-item"><button>search</button></div>
+                <div id="search-button" class="header-center-item"><img height="25px" src="@/assets/searchbutton.png" alt=""></div>
             </div>
             <div id="header-right" class="header-container-item">
-                <div id="options-button" class="header-right-item"><button>option</button></div>
+                
                 <div id="my-user-icon" class="header-right-item">
+                    <UserHomeHeaderMenu />
                     <!-- <img width="30" height="30" src="usericon.jpg" alt="user icon"> -->
-                    <button>user</button>
                 </div>
             </div>
 
         </div>
+<!-- --------------------------------------------------------------------- -->
         <div id="mobileHeader" class="header" v-if="$store.state.mediaType.mediaType == 'mobile'">
             <div class="nosearch-container mobileHeader" v-if="searchMode == false">
                 <div id="header-left" class="header-container-item">
                     <div id="guide-button" class="header-left-item"><button>guide</button></div>
-                    <div id="app-logo-button" class="header-left-item"><img src="favicon.ico" alt="logo"></div>
+                    <div id="app-logo-button" class="header-left-item"><router-link><img src="favicon.ico" alt="logo"></router-link></div>
                 </div>
 
 
                 <div id="header-right" class="header-container-item">
-                    <div id="search-button" class="header-center-item"><button v-on:click="searchMode = true">search</button></div>
-                    <div id="options-button" class="header-right-item"><button>option</button></div>
+                    <div id="search-button" class="header-center-item"><img height="25px" v-on:click="searchMode = true" src="@/assets/searchbutton.png" alt=""></div>
+
                     <div id="my-user-icon" class="header-right-item">
                     <!-- <img width="30" height="30" src="usericon.jpg" alt="user icon"> -->
-                        <button>user</button>
+                        <UserHomeHeaderMenu />
                     </div>
                 </div>
             </div>
@@ -53,28 +54,44 @@
 </template>
 
 <script>
-
+import UserHomeHeaderMenu from '@/components/UserHomeHeaderMenu'
 export default {    
     name: 'UserHomeHeader',
     data(){
       return{
         searchMode: false
       };
+    },
+    components:{
+        UserHomeHeaderMenu
     }
 }
 </script>
 
 <style scoped>
+#headerFiller{
+    height:37px
+}
 .UserHomeHeader{
     margin: 200px;
     padding: 0%;
+    height: 3000px;
+
 }
 .header{
     background: #ffffff;
-    border:10px
+    border:10px;
+    box-shadow: 0px 3px 3px;
+    background: #388;
+    position: fixed;
+    top: 0%;
+    height: 40px;
+    width: 100%;
     
 }
-
+#mobileHeader{
+    height: 40px;
+}
 .mobileHeader{
     display: flex;
     width: 100%;
@@ -101,13 +118,14 @@ export default {
 }
 #header-left{
     margin-left: 7px;
-    text-align: left;
+    margin-top: 0px;
 }
 
 .header-left-item{
     display: inline;
     text-align: left;
-    ;
+    margin-top: 0px;
+    height:auto;
     
 }
 #header-center{
@@ -172,6 +190,13 @@ export default {
 #search-box{
     width: 80%;
     margin-right:7px;
+}
+
+.mobileHeader #header-right #search-button{
+    position:relative;
+    top: -2px;
+    padding-right: 15px;
+
 }
  
 </style>

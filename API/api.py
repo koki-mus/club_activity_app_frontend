@@ -10,5 +10,5 @@ def getHoge():
     response = jsonify({"token":"dummy"})
     return response
 
-
+print("ss")
 app.run(host="127.0.0.1", port=8888, debug=True)
