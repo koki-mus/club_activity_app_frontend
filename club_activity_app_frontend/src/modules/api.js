@@ -46,3 +46,11 @@ export function login(user) {
         )
   }
   
+export function RegistFavoriteArtists(artists){//promiseを返すようにする
+    return new Promise((resolve) => {
+        setTimeout(() => {
+            console.log("from api module, regist favartists :"+artists)
+            resolve();
+        }, 1000);
+    })
+}
