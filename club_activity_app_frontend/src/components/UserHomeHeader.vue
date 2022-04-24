@@ -3,7 +3,7 @@
         <div id="headerFiller"></div>
         <div id="pcHeader" class="header" v-if="$store.state.mediaType.mediaType == 'pc'">
             <div id="header-left" class="header-container-item">
-                <div id="guide-button" class="header-left-item"><button>guide</button></div>
+                <!-- <div id="guide-button" class="header-left-item"><button>guide</button></div> -->
                 <div id="app-logo-button" class="header-left-item"><router-link to="/"><img  src="favicon.ico" alt="logo" height="33px"></router-link></div>
 
             </div>
@@ -24,8 +24,8 @@
         <div id="mobileHeader" class="header" v-if="$store.state.mediaType.mediaType == 'mobile'">
             <div class="nosearch-container mobileHeader" v-if="searchMode == false">
                 <div id="header-left" class="header-container-item">
-                    <div id="guide-button" class="header-left-item"><button>guide</button></div>
-                    <div id="app-logo-button" class="header-left-item"><router-link><img src="favicon.ico" alt="logo"></router-link></div>
+                    <!-- <div id="guide-button" class="header-left-item"><button>guide</button></div> -->
+                    <div id="app-logo-button" class="header-left-item"><router-link to="/"><img src="favicon.ico" alt="logo"></router-link></div>
                 </div>
 
 

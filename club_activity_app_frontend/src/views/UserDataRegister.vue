@@ -1,16 +1,20 @@
 <template>
+<!-- https://qiita.com/watsuyo_2/items/bda8f2673cf49de4421b -->
   <div class="UserDataRegiser">
     <UserHomeHeader class="margin0"/>
 
     <h1>regester Data 新規も変更も対応させる、認証ないとこのページ来れない</h1>
     <p>ユーザーID: {{ $store.state.account.userId }}</p>
     <h3>お気に入りアーティスト</h3>
-    <div class="artist-list selected-list">
-      <span class="artist selected">alexandros</span>
-      <span class="artist selected">alexandros</span>
-      <span class="artist selected">alexandros</span>
-      <span class="artist selected">alexandros</span>
-      <span class="artist selected">alexandros</span>
+    <div class="artist-list favorite-list">
+      <p v-for="artist in FavArtists" v-bind:key="artist.id" 
+        v-on:click="FavClick(artist)" class="artist favorite">
+        {{ artist }}
+      </p>
+      <span class="artist favorite">alexandros</span>
+      <span class="artist favorite">alexandros</span>
+      <span class="artist favorite">alexandros</span>
+      <span class="artist favorite">alexandros</span>
     </div>
     <h3>アーティスト候補</h3>
       <div class="artist-list candidate-list">
@@ -26,10 +30,19 @@ import UserHomeHeader from '@/components/UserHomeHeader'
 export default {
   name: "UserDaraRegister",
   methods: {
+    FavClick(artist){
+      console.log(artist + "clicked")
 
+      // favartistのリストからはずしてとccandidateのリストに加える。
+    }
   },
   components:{
     UserHomeHeader
+  },
+  data: function(){
+    return{
+      FavArtists:["aaa","bbb"]
+    }
   }
 };
 
@@ -57,7 +70,7 @@ export default {
   margin: 6px 4px;
   cursor: pointer;
 }
-.selected{
+.favorite{
   background: #e0ffff;
 }
 </style>
