@@ -1,7 +1,8 @@
 <template>
   <div class="UserSignupForm">
     <h1>Sigin up</h1>
-      <form v-on:submit.prevent="doSignup">
+      <form>
+      <!-- <form v-on:submit.prevent="doSignup"> -->
         <label>ユーザーID</label><br>
         <input type="text" placeholder="user id" v-model="user.userId" v-on:input="make_userId_message"/><br>
         <span v-html="userId_message"></span>
@@ -13,7 +14,7 @@
         <input type="password" placeholder="password" v-model="pass2" v-on:input="make_pass2_message"/><br>
         <span v-html="pass2_message"></span>
 
-        <button type="submit" :disabled="!pass1_flag || !pass2_flag || !userId_flag" >Sign In</button>
+        <SingleSubmitButton :onclick="doSignup" type="submit" :disabled="!pass1_flag || !pass2_flag || !userId_flag" >Sign In</SingleSubmitButton>
 
       </form>
       <!-- <p class="resMessage" v-html="resMessage"></p> -->
@@ -22,6 +23,7 @@
 
 <script>
 import {signup} from '@/modules/api'
+import SingleSubmitButton from '@/components/SingleSubmitButton'
 export default {
   name: 'UserSignupForm',
       data() {
@@ -41,13 +43,16 @@ export default {
   },
   methods: {
     doSignup() {
-      if(this.pass1_flag && this.pass2_flag){
-        this.user.password = this.pass1
-        signup(this.user);
-      }
-      else{
-        alert("不正な入力があります。")
-      }
+      return new Promise((resolve) =>{
+        if(this.pass1_flag && this.pass2_flag){
+          this.user.password = this.pass1
+          signup(this.user);
+        }
+        else{
+          alert("不正な入力があります。")
+        }
+        resolve();
+        })
     },
       make_userId_message() {
         var message = ""
@@ -109,6 +114,9 @@ export default {
       }
       this.pass2_message = message
     },
+  },
+  components:{
+    SingleSubmitButton,
   }
 }
 </script>

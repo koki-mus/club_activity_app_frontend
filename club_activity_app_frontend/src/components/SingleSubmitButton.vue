@@ -1,5 +1,5 @@
 <template>
-  <button :disabled="disabled || processing" @click="handleClick">
+  <button :disabled="disabled || processing" @click.prevent="handleClick">
     <slot></slot>
   </button>
 </template>
@@ -27,10 +27,8 @@
       handleClick() {
         if (this.processing) return;
         this.processing = true;
-        console.log("proces")
         this.onclick()
           .then(() => {
-              console.log("processing")
             this.processing = false;
           });
       },

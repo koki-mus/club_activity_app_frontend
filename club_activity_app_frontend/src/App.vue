@@ -45,6 +45,16 @@ nav a.router-link-exact-active {
   margin: opx;
 }
 
+.flexwrap{
+  /* display: flex; */
+  display : -webkit-box;     /* old Android */
+  display : -webkit-flex;    /* Safari etc. */
+  display : -ms-flexbox;
+  flex-wrap:wrap;
+  /* border: solid 1px; */
+  margin: 20px 10px;
+  justify-content: center;
+}
 
 </style>
 

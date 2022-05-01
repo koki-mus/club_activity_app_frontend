@@ -1,15 +1,15 @@
 <template>
   <div class="UserLoginForm">
     <h1>アプリにログイン</h1>
-    
-      <form v-on:submit.prevent="doLogin">
+      <form>
+      <!-- <form v-on:submit.prevent="doLogin"> -->
         <label>ユーザーID</label>
         <input type="text" placeholder="user id" v-model="user.userId" v-on:input="make_userId_message" /><br>
                 <span v-html="userId_message"></span>
         <label>パスワード</label>
         <input type="password" placeholder="password" v-model="pass" v-on:input="make_pass_message"/><br>
                 <span v-html="pass_message"></span>
-        <button type="submit" :disabled="!pass_flag || !userId_flag">Sign In</button>
+        <SingleSubmitButton :onclick="doLogin" type="submit" :disabled="!pass_flag || !userId_flag">Sign In</SingleSubmitButton>
       </form>
 
       <h3>LINElogin</h3>
@@ -19,6 +19,7 @@
 
 <script>
 import {login} from '@/modules/api'
+import SingleSubmitButton from '@/components/SingleSubmitButton'
 export default {
   name: 'UserLoginForm',
     data() {
@@ -34,7 +35,11 @@ export default {
   },
 
   methods: {
-    doLogin() {login(this.user);
+    doLogin() {
+      return new Promise((resolve) => {
+        login(this.user);
+        resolve()
+      })
     },
     make_userId_message() {
       var message = ""
@@ -81,7 +86,9 @@ export default {
       }
       this.pass_message = "<font color='red'>"+message+"</font><br>"
     },
-    
+  },
+  components:{
+    SingleSubmitButton,
   }
 };
 

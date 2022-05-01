@@ -1,12 +1,11 @@
 <template>
-<!-- https://qiita.com/watsuyo_2/items/bda8f2673cf49de4421b -->
   <div class="UserDataRegiser">
     <UserHomeHeader class="margin0"/>
 
     <h1>好きなアーティストを選びましょう 新規も変更も対応させる、認証ないとこのページ来れない</h1>
     <p>ユーザーID: {{ $store.state.account.userId }}</p>
     <h3>選択済みのアーティスト</h3>
-    <div class="artist-list favorite-list">
+    <div class="artist-list favorite-list flexwrap">
       <transition-group name="list-complete" tag="p">
       <p v-for="artist in FavoriteArtists" v-bind:key="artist" 
         v-on:click="FavoriteClick(artist)" class="artist favorite list-complete-item">
@@ -19,7 +18,7 @@
     <SingleSubmitButton :onclick="doRegistFavoriteArtists">決定</SingleSubmitButton> 
     <h3>下から選んでください</h3>
     <!-- 検索機能つけよう -->
-      <div class="artist-list candidate-list">
+      <div class="artist-list candidate-list flexwrap">
         <transition-group name="list-complete" tag="p">
         <p v-for="artist in CandidateArtists" :key="artist" 
           v-on:click="CandidateClick(artist)" class="artist candidate list-complete-item">
@@ -34,7 +33,7 @@
 <script>
 import UserHomeHeader from '@/components/UserHomeHeader'
 import SingleSubmitButton from '@/components/SingleSubmitButton'
-import {RegistFavoriteArtists} from '@/modules/api'
+import {RegistFavoriteArtists,GetFavoriteArtists,GetCandidateArtists} from '@/modules/api'
 export default {
   name: "UserDataRegister",
   methods: {
@@ -49,12 +48,14 @@ export default {
     doRegistFavoriteArtists(){//promiseを返すようにする
       return new Promise((resolve) => {
         setTimeout(() => {
-            console.log("from api module, regist favartists")
+            
             RegistFavoriteArtists(this.FavoriteArtists)
             resolve();
         }, 1000);
     })
-    }
+    },
+    GetFavoriteArtists,
+    GetCandidateArtists
   },
   components:{
     UserHomeHeader,
@@ -62,11 +63,16 @@ export default {
   },
   data: function(){
     return{
-      FavoriteArtists:["aaa","bbb"],
+      FavoriteArtists:["aaa","bbb"],//apiで入手してくる
       CandidateArtists:["ccc","ddd"],
       processing: false,
     }
-  }
+  },
+  created: function() {
+    this.FavoriteArtists = GetFavoriteArtists();
+    this.CandidateArtists = GetCandidateArtists().filter((val) => !this.FavoriteArtists.includes(val));
+    console.log(GetCandidateArtists)
+  },
 };
 
 </script>
@@ -74,15 +80,7 @@ export default {
 <style scoped>
 .artist-list{
   width:auto;
-  max-width: 800px;
-  display: flex;
-  display : -webkit-box;     /* old Android */
-  display : -webkit-flex;    /* Safari etc. */
-  display : -ms-flexbox;  
-  flex-wrap:wrap;
-  border: 1px;
-  margin: 20px 10px;
-  justify-content: center;
+  /* max-width: 800px; */
 }
 .artist{
   border: 1px solid;
