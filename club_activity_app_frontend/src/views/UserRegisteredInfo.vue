@@ -1,6 +1,6 @@
 <template>
   <div class="UserRegisteredInfo">
-    <UserHomeHeader class="margin0"/>
+
     <h1>regesterd info</h1>
     <p>ユーザーID: {{ $store.state.account.userId }}</p>
     <h3>お気に入りアーティスト</h3>
@@ -10,7 +10,7 @@
 </template>
 
 <script>
-import UserHomeHeader from '@/components/UserHomeHeader'
+
 
 export default {
   name: "UserRegisteredInfo",
@@ -18,7 +18,7 @@ export default {
 
   },
   components:{
-    UserHomeHeader
+
   }
 };
 

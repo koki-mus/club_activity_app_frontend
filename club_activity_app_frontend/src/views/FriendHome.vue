@@ -1,6 +1,6 @@
 <template>
   <div class="FriendHome">
-    <h1>User ID. {{ $route.params.id }}</h1>
+    <h1>{{ user.name }}</h1>
     <p>this is friend page</p>
     {{user.name}}
 

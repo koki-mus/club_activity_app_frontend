@@ -1,6 +1,6 @@
 <template>
   <div class="UserHome">
-    <UserHomeHeader class="margin0"/>
+
     <h1>User home page</h1>
     <h3>Welcome {{ $store.state.account.userId }}{{ $store.state.account.userToken}}</h3>
 
@@ -12,7 +12,6 @@
     
 <script>
 
-import UserHomeHeader from '@/components/UserHomeHeader'
 import SimilarUser from '@/components/SimilarUser'
 // import UserHomeMain from '@/components/UserHomeMain'
 
@@ -31,7 +30,7 @@ export default {
       }
     },
   components:{
-    UserHomeHeader,
+
     SimilarUser
   }
 };

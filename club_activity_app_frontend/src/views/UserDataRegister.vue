@@ -1,6 +1,6 @@
 <template>
   <div class="UserDataRegiser">
-    <UserHomeHeader class="margin0"/>
+\
 
     <h1>好きなアーティストを選びましょう 新規も変更も対応させる、認証ないとこのページ来れない</h1>
     <p>ユーザーID: {{ $store.state.account.userId }}</p>
@@ -31,7 +31,7 @@
 </template>
 
 <script>
-import UserHomeHeader from '@/components/UserHomeHeader'
+
 import SingleSubmitButton from '@/components/SingleSubmitButton'
 import {RegistFavoriteArtists,GetFavoriteArtists,GetCandidateArtists} from '@/modules/api'
 export default {
@@ -58,7 +58,7 @@ export default {
     GetCandidateArtists
   },
   components:{
-    UserHomeHeader,
+
     SingleSubmitButton
   },
   data: function(){

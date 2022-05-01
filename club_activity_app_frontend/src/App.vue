@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <UserHomeHeader v-if="$route.path != '/login'"/>
     <router-view class="margin0" />
     <nav>
       <router-link to="/">Home</router-link>  |
@@ -59,10 +60,14 @@ nav a.router-link-exact-active {
 </style>
 
 <script>
+import UserHomeHeader from '@/components/UserHomeHeader'
 export default {
     name: "app",
     created: function() {
       this.tellMediaType();
+    },
+    components:{
+      UserHomeHeader
     },
     mounted(){
       window.addEventListener('resize',this.tellMediaType);
