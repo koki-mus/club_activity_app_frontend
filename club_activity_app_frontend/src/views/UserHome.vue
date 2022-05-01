@@ -22,7 +22,8 @@ import {GetSimilarUsers} from '@/modules/api'
 export default {
   name: "UserHome",
     methods: {
-    GetSimilarUsers  
+    GetSimilarUsers,
+
   },
   data(){
     return{

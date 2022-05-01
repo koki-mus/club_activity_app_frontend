@@ -71,7 +71,6 @@ export default {
   created: function() {
     this.FavoriteArtists = GetFavoriteArtists();
     this.CandidateArtists = GetCandidateArtists().filter((val) => !this.FavoriteArtists.includes(val));
-    console.log(GetCandidateArtists)
   },
 };
 

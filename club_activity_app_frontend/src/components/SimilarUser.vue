@@ -1,5 +1,5 @@
 <template>
-  <div class="SimilarUser">
+  <div class="SimilarUser" v-on:click="PushToFriendHome()">
     <h1>{{this.user.name}}</h1>
     <div class="arthist-list flexwrap">
       <span class="artist" v-for="artist in user.FavoriteArtists" :key="artist">
@@ -25,6 +25,11 @@
       return {
         
       };
+    },
+    methods: {
+      PushToFriendHome(){
+      this.$router.push("/friend/"+this.user.userId + "/")
+    }
     }
   };
 </script>

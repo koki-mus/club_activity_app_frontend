@@ -41,7 +41,13 @@ const routes = [
     name: 'UserDataRegister',
     component: () => import(/* webpackChunkName: "about" */ '../views/UserDataRegister.vue'),
     meta: { requiresAuth: true }
-  }
+  },
+
+  {//テスト段階
+    path: '/friend/:id',
+        component: () => import(/* webpackChunkName: "about" */ '../views/FriendHome.vue'),
+  }  
+
 ]
 
 const router = new VueRouter({

@@ -72,6 +72,15 @@ export function GetSimilarUsers(){
   ]
 }
 
+export function GetFriendInfo(FriendId){
+  return {
+      userId:FriendId,
+      name:"name_getfriendinfo",
+      FavoriteArtists:["fa_1","fa_2","fa_3","fa_4"],
+      SimilarUsers:["Aname","Bname","Cname","Dname"]
+  }
+}
+
 /* 
 login
 
