@@ -56,6 +56,16 @@ nav a.router-link-exact-active {
   margin: 20px 10px;
   justify-content: center;
 }
+.artist{
+  border: 1px solid;
+  border-radius:5px;
+  height: 20px;
+  box-shadow: 2px 2px 2px;
+  padding: 2px 4px;
+  margin: 6px 4px;
+  cursor: pointer;
+  display: inline-block;
+}
 
 </style>
 

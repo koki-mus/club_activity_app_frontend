@@ -2,7 +2,12 @@
   <div class="FriendHome">
     <h1>{{ user.name }}</h1>
     <p>this is friend page</p>
-    {{user.name}}
+      <div class="flexwrap">
+        <p v-for="artist in this.user.FavoriteArtists" :key="artist" 
+           class="artist">
+          {{ artist }}
+        </p>
+      </div>
 
   </div>
 </template>
@@ -32,3 +37,12 @@ export default {
   },
 }
 </script>
+
+<style scoped>
+.artist{
+  
+}
+div{
+  width: auto;
+}
+</style>

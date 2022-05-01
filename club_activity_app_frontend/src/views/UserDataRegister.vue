@@ -1,6 +1,6 @@
 <template>
   <div class="UserDataRegiser">
-\
+
 
     <h1>好きなアーティストを選びましょう 新規も変更も対応させる、認証ないとこのページ来れない</h1>
     <p>ユーザーID: {{ $store.state.account.userId }}</p>
@@ -58,8 +58,7 @@ export default {
     GetCandidateArtists
   },
   components:{
-
-    SingleSubmitButton
+    SingleSubmitButton,
   },
   data: function(){
     return{
@@ -81,15 +80,8 @@ export default {
   width:auto;
   /* max-width: 800px; */
 }
-.artist{
-  border: 1px solid;
-  border-radius:5px;
-  height: 20px;
-  box-shadow: 2px 2px 2px;
-  padding: 2px 4px;
-  margin: 6px 4px;
-  cursor: pointer;
-}
+
+
 .favorite{
   background: #e0ffff;
 }
