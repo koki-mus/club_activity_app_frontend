@@ -52,12 +52,8 @@ h1{
 
 .artist{
   font-size: 11px;
-  border: 1px solid;
   border-color: #7df;
-  border-radius:5px;
-  box-shadow: 1px 1px 1px;
   padding: 1px 3px;
-  margin: 30px 3px;
-  cursor: pointer;
+  cursor:text
 }
 </style>
