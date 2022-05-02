@@ -5,15 +5,17 @@ import router from '@/router'
 import { reset_state } from '@/modules/module';
 
 
+const token = store.state.account.userToken
+const baseURL = "http://localhost:8888"
+
 /*ユーザが持っている情報 
+@userid
 token
 name
 email
 pass
-favart{id,自分が選んでいるもの、そうでないもの}
+favoriteArttist{id,自分が選んでいるもの、そうでないもの}
 similaruser */
-
-const baseURL = "http://localhost:8888"
 
 export function login(user) {
     //認証付ける
@@ -44,9 +46,26 @@ export function signup(user) {//全部テスト用でログインと同じ
         router.push("/UserDataRegister"); //(router.query.redirect);//アーティスト登録などの画面へ
       })
 }
-  
-export function RegistFavoriteArtists(artists){
-    console.log("from api module, regist favartists :"+artists)
+
+export function RegistFavoriteArtists(artists){   
+    axios.post(baseURL+'/post',{
+        token: token,
+        artists:artists
+      },
+      {withCredentials : true}
+    )
+    .then(res => {
+      console.log(res)
+      return res
+    })
+      .catch(err => {
+        err.response
+        alert("通信に失敗しました。")
+        }
+    )
+
+
+
 }
 
 export function GetFavoriteArtists(){

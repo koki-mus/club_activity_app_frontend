@@ -53,7 +53,8 @@ h1{
 .artist{
   font-size: 11px;
   border-color: #7df;
-  padding: 1px 3px;
-  cursor:text
+  padding: 2px 3px;
+  cursor:text;
+  height: auto;
 }
 </style>

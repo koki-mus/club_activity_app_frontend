@@ -47,11 +47,10 @@ export default {
     },
     doRegistFavoriteArtists(){//promiseを返すようにする
       return new Promise((resolve) => {
-        setTimeout(() => {
-            
-            RegistFavoriteArtists(this.FavoriteArtists)
+            var res = RegistFavoriteArtists(this.FavoriteArtists)
+            setTimeout(() => {console.log(res,"sss")}, 5000);
             resolve();
-        }, 1000);
+            // RegistFavoriteArtistの返値をresにいれれない、使えないの治そう
     })
     },
     GetFavoriteArtists,
